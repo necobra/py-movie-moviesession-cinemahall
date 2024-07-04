@@ -28,10 +28,10 @@ def create_movie(
         description=movie_description
     )
     if genres_ids:
-        movie.genres.add(
-            *Genre.objects.filter(id__in=genres_ids).all()
+        movie.genres.set(
+            Genre.objects.filter(id__in=genres_ids)
         )
     if actors_ids:
-        movie.actors.add(
-            *Actor.objects.filter(id__in=actors_ids).all()
+        movie.actors.set(
+            Actor.objects.filter(id__in=actors_ids)
         )
